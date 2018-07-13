@@ -4,6 +4,14 @@ from flask import Flask, request, url_for, redirect, render_template
 # Defining application.
 app = Flask(__name__)
 
+# Added function that converts string into alphabetically formatted list.
+def formatWords(string):
+    formattedlist = []
+    for word in string.split():
+        formattedlist.append(word)
+    formattedlist.sort()
+    return formattedlist
+        
 # Routing main page of website.
 @app.route('/')
 def my_form():
@@ -24,4 +32,3 @@ def my_form_post():
 # Creating special case to ensure app only runs if it is ran directly.
 if __name__ == '__main__':
     app.run()
-    
